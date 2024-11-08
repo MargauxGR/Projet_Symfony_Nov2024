@@ -1,38 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Sorties ENI !
-{#| {{ parent() }}#}
+    {# | {{ parent() }} #}
 {% endblock %}
 
 {% block body %}
 
 <div class="les-sorties">
     <h1>Nos
-{#        {{ sorties }}#}
+        {#        {{ sorties }} #}
         ! ✅</h1>
 
-{#    This friendly message is coming from:#}
-{#    <ul>#}
-{#        <li>Your controller at <code>D:/wamp64/www/Projet_Symfony_Nov2024/src/Controller/SortiesController.php</code></li>#}
-{#        <li>Your template at <code>D:/wamp64/www/Projet_Symfony_Nov2024/templates/sorties/indsorties.html.twig</code></li>#}
-{#    </ul>#}
+{#    {% for sortie in sorties %}#}
+{#    {{ sortie.nom }}#}
+{#    {% endfor %}#}
 
     <table>
-{#        {{  }}#}
-{#        {%  %}#}
+        <thead>
         <tr>
-            <td>
-{#                {{  }}#}
-{#                {%  %}#}
-{#                {% end... %}#}
-            </td>
-
-            <td>
-
-            </td>
+            <th>Name
+                {#                {{  }} #}
+                {#                {%  %} #}
+            </th>
+            <th>Date</th>
+            <th>Durée</th>
+            <th>Date limite d'inscription</th>
+            <th>Nombre de places</th>
+            <th>Détails</th>
         </tr>
+        </thead>
+        <tbody>
+        {% for sortie in sorties %}
+        <tr>
+            <td>{{ sortie.nom }}</td>
+            <td>{{ sortie.dateHeureDebut | format_datetime(locale: 'fr', timezone: false) }}</td>
+            <td>{{ sortie.duree }}</td>
+            <td>{{ sortie.dateLimiteInscription | format_datetime(locale: 'fr', timezone: false) }}</td>
+            <td>{{ sortie.nbInscriptionsMax }}</td>
+            <td>{{ sortie.infosSortie }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
     </table>
-
-
 </div>
+
 {% endblock %}
