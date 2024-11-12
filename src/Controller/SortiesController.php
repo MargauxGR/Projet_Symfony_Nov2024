@@ -50,7 +50,7 @@ class SortiesController extends AbstractController
         //rediriger sur la page d'accueil
 
         //sinon renvoyer un nouveau template avec le code du formulaire
-        return $this->render('sorties_form/sortiesform.html.twig', [
+        return $this->render('sortie_form/sortieform.html.twig', [
             ["sortie" => $sortie],
         ]);
     }
