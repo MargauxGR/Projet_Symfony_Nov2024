@@ -4,4 +4,15 @@ h1 {
 
 body {
     background-color: #b02a37;
+    color: #dff7fb;
+}
+
+thead {
+    background-color: #dff7fb;
+    color: midnightblue;
+}
+
+table {
+    background-color: midnightblue;
+    color: #dff7fb;
 }
