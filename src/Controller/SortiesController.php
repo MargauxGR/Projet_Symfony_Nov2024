@@ -11,9 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+#[Route('/sorties', name: 'app_sorties_')]
 class SortiesController extends AbstractController
 {
-    #[Route('/sorties', name: 'app_sorties')]
+    #[Route('/', name: 'liste', methods: ['GET'])]
     public function sorties(SortieRepository $sortieRepository): Response
     {
         $sorties = $sortieRepository->findAll();
@@ -23,7 +24,7 @@ class SortiesController extends AbstractController
     }
 
     //modifier le nom de le route et son url, le nom de méthode aussi
-    #[Route('/sorties', name: 'app_sorties_create')]
+    #[Route('/nouvelle_sortie', name: 'create', methods: ['GET', 'POST'])]
     public function create(Request $request, EntityManagerInterface $em): Response
     {
         /////////////////////////////////////////////
@@ -41,17 +42,24 @@ class SortiesController extends AbstractController
         //tester si le formulaire est soumis et si'il est valide
         if ($sortieForm->isSubmitted() && $sortieForm->isValid()) {
             //enregister la donnée
+//            $sortie->setPublished(true); ???
             $em->persist($sortie);
             $em->flush();
             $this->addFlash('success', 'Votre sortie a été ajoutée');
-            return $this->redirectToRoute('app_sorties');
+            return $this->redirectToRoute('app_sorties_liste');
         }
 
         //rediriger sur la page d'accueil
 
         //sinon renvoyer un nouveau template avec le code du formulaire
         return $this->render('sortie_form/sortieform.html.twig', [
-            ["sortie" => $sortie],
+        "sortieForm" => $sortieForm
         ]);
     }
+
+//    #[Route('/insert', name: 'insert')]
+//    public function insert(Request $request): Response
+//    {
+//        $sortieForm
+//    }
 }

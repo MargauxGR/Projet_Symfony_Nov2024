@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\SortieRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SortieRepository::class)]
 class Sortie
@@ -15,21 +16,36 @@ class Sortie
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Merci de nommer la sortie.')]
+    #[Assert\Length(min: 25, max: 255,
+        minMessage: "Minimum {{ limit }} caractères requis.",
+        maxMessage: "Texte limité à {{ limit }} caractères.")]
+    #[Assert\Assert\Regex(pattern: '/^[a-z0-9_-]+$/i',
+        message: 'Merci de n\'utiliser que des lettres, des chiffres, ou des tirets tels que "-" "_".',)]
     private ?string $nom = null;
 
     #[ORM\Column(type: Types::DATETIMETZ_IMMUTABLE)]
+    #[Assert\NotBlank(message: 'Merci de préciser la date et l\'heure de la sortie.')]
     private ?\DateTimeImmutable $dateHeureDebut = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'Merci d\'indiquer une durée en minutes.')]
     private ?int $duree = null;
 
     #[ORM\Column(type: Types::DATETIMETZ_IMMUTABLE)]
+    #[Assert\NotBlank(message: 'Merci de sélectionner une date limite pour l\'inscription à la sortie.')]
     private ?\DateTimeImmutable $dateLimiteInscription = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(nullable: false)]
     private ?int $nbInscriptionsMax = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Merci de décrire la sortie.')]
+    #[Assert\Length(min: 50, max: 2550,
+        minMessage: "Minimum {{limit}} caractères requis",
+        maxMessage: "Texte limité à {{limit}} caractères.")]
+    #[Assert\Assert\Regex(pattern: '/^[a-z0-9_-,;:!?]+$/i',
+        message: 'Merci de n\'utiliser que des lettres, des chiffres, ou caractères spéciaux autorisés(-_.,;:!?() ).',)]
     private ?string $infosSortie = null;
 
     public function getId(): ?int
@@ -42,7 +58,7 @@ class Sortie
         return $this->nom;
     }
 
-    public function setNom(string $nom): static
+    public function setNom(?string $nom): static
     {
         $this->nom = $nom;
 
@@ -54,7 +70,7 @@ class Sortie
         return $this->dateHeureDebut;
     }
 
-    public function setDateHeureDebut(\DateTimeImmutable $dateHeureDebut): static
+    public function setDateHeureDebut(?\DateTimeImmutable $dateHeureDebut): static
     {
         $this->dateHeureDebut = $dateHeureDebut;
 
@@ -66,7 +82,7 @@ class Sortie
         return $this->duree;
     }
 
-    public function setDuree(int $duree): static
+    public function setDuree(?int $duree): static
     {
         $this->duree = $duree;
 
@@ -78,7 +94,7 @@ class Sortie
         return $this->dateLimiteInscription;
     }
 
-    public function setDateLimiteInscription(\DateTimeImmutable $dateLimiteInscription): static
+    public function setDateLimiteInscription(?\DateTimeImmutable $dateLimiteInscription): static
     {
         $this->dateLimiteInscription = $dateLimiteInscription;
 
@@ -102,7 +118,7 @@ class Sortie
         return $this->infosSortie;
     }
 
-    public function setInfosSortie(string $infosSortie): static
+    public function setInfosSortie(?string $infosSortie): static
     {
         $this->infosSortie = $infosSortie;
 
