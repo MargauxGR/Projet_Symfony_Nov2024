@@ -20,7 +20,7 @@ class Sortie
     #[Assert\Length(min: 25, max: 255,
         minMessage: "Minimum {{ limit }} caractères requis.",
         maxMessage: "Texte limité à {{ limit }} caractères.")]
-    #[Assert\Assert\Regex(pattern: '/^[a-z0-9_-]+$/i',
+    #[Assert\Regex(pattern: '/^[a-z0-9_-]+$/i',
         message: 'Merci de n\'utiliser que des lettres, des chiffres, ou des tirets tels que "-" "_".',)]
     private ?string $nom = null;
 
@@ -44,8 +44,9 @@ class Sortie
     #[Assert\Length(min: 50, max: 2550,
         minMessage: "Minimum {{limit}} caractères requis",
         maxMessage: "Texte limité à {{limit}} caractères.")]
-    #[Assert\Assert\Regex(pattern: '/^[a-z0-9_-,;:!?]+$/i',
-        message: 'Merci de n\'utiliser que des lettres, des chiffres, ou caractères spéciaux autorisés(-_.,;:!?() ).',)]
+    #[Assert\Regex(pattern: '/^[a-z0-9_-]+$/i',
+        message: 'Merci de n\'utiliser que des lettres, des chiffres, ou caractères spéciaux autorisés(-_.,;:!?() ).',)
+        ]
     private ?string $infosSortie = null;
 
     public function getId(): ?int
