@@ -1,18 +1,86 @@
-h1 {
-    color: midnightblue;
-}
+/*!*.sansserif {*!*/
+/*!*    font-family: Verdana, Arial, Helvetica, sans-serif;*!*/
+/*!*}*!*/
 
-body {
-    background-color: #b02a37;
-    color: #dff7fb;
-}
 
-thead {
-    background-color: #dff7fb;
-    color: midnightblue;
-}
+/*!* base *!*/
+/*!*head {*!*/
+/*!*    color: #95B258;*!*/
+/*!*}*!*/
 
-table {
-    background-color: midnightblue;
-    color: #dff7fb;
-}
+/*head, body {*/
+/*    !*display: flex;*!*/
+/*    !*flex-direction: column;*!*/
+/*    !*flex-wrap: wrap;*!*/
+/*    top: 0.5rem;*/
+/*    right: 0.5rem;*/
+/*    z-index: 1;*/
+
+/*    cursor: pointer;*/
+/*    border: 0.5px solid #011f39;*/
+
+/*    font-family: Helvetica, Verdana, Arial, sans-serif;*/
+/*    background-color: #011f39;*/
+/*}*/
+
+/*body {*/
+/*    color: #dff7fb;*/
+/*}*/
+
+/*!* sortieform : div - h1 -button *!*/
+
+/*h1 {*/
+/*    color: #95B25;*/
+/*}*/
+
+/*button {*/
+
+/*}*/
+
+
+/*!* indsorties*/
+/*div - (h1) \ table // - thead // - tr - th*/
+/*            \       // -tbody / - tr - td*/
+/**!*/
+
+/*table {*/
+/*    background-color: #dff7fb;*/
+/*    color: midnightblue;*/
+/*}*/
+
+/*thead {*/
+/*    background-color: #dff7fb;*/
+/*    color: midnightblue;*/
+/*}*/
+
+
+/*!*login*/
+/*form*/
+/*    div*/
+
+/*    -h*/
+/*    -label*/
+/*    -input*/
+
+/*    button*/
+/*    *!*/
+
+
+
+/*!*@media screen and (min-width: 601px) {*!*/
+/*!*    font-size: 80px;*!*/
+/*!*}*!*/
+
+/*!*@media screen and (max-width: 600px) {*!*/
+/*!*    font-size: 30px;*!*/
+/*!*}*!*/
+
+
+
+
+
+/*!*@each $color, $value in $theme-colors {*!*/
+/*!*    .btn-#{$color} {*!*/
+/*!*        @*!*/
+/*!*    }*!*/
+/*!*}*!*/
