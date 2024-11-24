@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sorties ENI !
+    {# | {{ parent() }} #}
+{% endblock %}
+
+{% block body %}
+
+<div class="the-outings">
+    <h1>Les Sorties ! ✅</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date and time</th>
+            <th>Duration</th>
+            <th>Registration deadline</th>
+            <th>Maximum number of participants</th>
+            <th>Details and information</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for outing in outings %}
+        <tr>
+            <td>{{ outing.name }}</td>
+            <td>{{ outing.startDateTime | format_datetime(locale: 'fr', timezone: false) }}</td>
+            <td>{{ outing.duration }}</td>
+            <td>{{ outing.registrationDeadline | format_datetime(locale: 'fr', timezone: false) }}</td>
+            <td>{{ outing.maxNbRegistration }}</td>
+            <td>{{ outing.outingDetails }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <br>
+<div>
+{#    {{  }}#}
+{#    <button class="btn btn-primary">Create a new outing</button>#}
+</div>
+{% endblock %}

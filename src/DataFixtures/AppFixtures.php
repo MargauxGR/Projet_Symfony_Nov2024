@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Sortie;
+use App\Entity\Outing;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\DBAL\Types\TextType;
@@ -21,8 +21,8 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
          $userAdmin = new User();
-         $userAdmin->setNom('admin');
-         $userAdmin->setPrenom('admin');
+         $userAdmin->setLastname('admin');
+         $userAdmin->setFirstname('admin');
          $userAdmin->setEmail('admin@admin.com');
          $userAdmin->setRoles(['ROLE_ADMIN']);
          $password = $this->userPasswordHasher->hashPassword($userAdmin, '123456azerty');
@@ -31,8 +31,8 @@ class AppFixtures extends Fixture
 
          for ($i = 0; $i < 10; $i++) {
              $user = new User();
-             $user->setNom('nom'.$i);
-             $user->setPrenom('prenom'.$i);
+             $user->setLastname('lastname'.$i);
+             $user->setFirstname('firstname'.$i);
              $user->setEmail('email'.$i.'@campus-eni.fr');
              $user->setRoles(['ROLE_USER']);
              $password=$this->userPasswordHasher->hashPassword($user, '123456azerty');
@@ -40,29 +40,25 @@ class AppFixtures extends Fixture
              $manager->persist($user);
          }
 
-         $sortie = new Sortie();
-         $sortie->setNom('nom');
-         $sortie->setDateHeureDebut(dateHeureDebut: new \DateTimeImmutable("now"));
-         $sortie->setDuree(10);
-         $sortie->setDateLimiteInscription(dateLimiteInscription: new \DateTimeImmutable("now"));
-         $sortie->setNbInscriptionsMax(10);
-         $sortie->setInfosSortie('Infos Sortie');
+         $outing = new Outing();
+         $outing->setName('name');
+         $outing->setStartDateTime(startDateTime: new \DateTimeImmutable("now"));
+         $outing->setDuration(10);
+         $outing->setRegistrationDeadline(registrationDeadline: new \DateTimeImmutable("now"));
+         $outing->setMaxNbRegistration(10);
+         $outing->setOutingDetails('Outing Details');
 
         for ($i = 0; $i < 7; $i++) {
-            $sortie = new Sortie();
-            $sortie->setNom('nom'.$i);
-            $sortie->setDateHeureDebut(dateHeureDebut: new \DateTimeImmutable("now"));
-            $sortie->setDuree(10);
-            $sortie->setDateLimiteInscription(dateLimiteInscription: new \DateTimeImmutable("now"));
-            $sortie->setNbInscriptionsMax(10);
-            $sortie->setInfosSortie('Infos Sortie');
-            $manager->persist($sortie);
+            $outing = new Outing();
+            $outing->setName('name'.$i);
+            $outing->setStartDateTime(startDateTime: new \DateTimeImmutable("now"));
+            $outing->setDuration(10);
+            $outing->setRegistrationDeadline(registrationDeadline: new \DateTimeImmutable("now"));
+            $outing->setMaxNbRegistration(10);
+            $outing->setOutingDetails('Outing Details');
+            $manager->persist($outing);
         }
 
         $manager->flush();
     }
 }
-
-
-//('now', new \DateTimeZone('Europe/Paris'))
-//('d-m-Y H:i:s', '01-01-2024 00:00:00')

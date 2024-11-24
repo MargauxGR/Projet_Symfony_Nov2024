@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Sortie;
+use App\Entity\Outing;
 use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -13,30 +13,30 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SortieType extends AbstractType
+class OutingType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', TextType::class, [
-                'label' => 'Nom de la sortie :',
+            ->add('name', TextType::class, [
+                'label' => 'Outing Name:',
             ])
-            ->add('dateHeureDebut', DateTimeType::class, [
+            ->add('startDateTime', DateTimeType::class, [
                 'widget' => 'single_text',
-                'label' => 'Date et heure de la sortie :',
+                'label' => 'Outing Date and Time:',
             ])
-            ->add('dateLimiteInscription', DateType::class, [
+            ->add('registrationDeadline', DateType::class, [
                 'widget' => 'single_text',
-                'label' => 'Date limite d\'inscription :',
+                'label' => 'Registration Deadline:',
             ])
-            ->add('nbInscriptionsMax', NumberType::class, [
-                'label' => 'Nombre de places :',
+            ->add('maxNbRegistration', NumberType::class, [
+                'label' => 'Maximum Number of Participants:',
             ])
-            ->add('duree', NumberType::class, [
-                'label' => 'Durée (en minutes) :',
+            ->add('duration', NumberType::class, [
+                'label' => 'Duration (in minutes):',
             ])
-            ->add('infosSortie', TextareaType::class, [
-                'label' => 'Description et infos :', 'required' => false
+            ->add('outingDetails', TextareaType::class, [
+                'label' => 'Details and Information:', 'required' => false
             ])
         ;
     }
@@ -44,7 +44,7 @@ class SortieType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Sortie::class,'required' => false
+            'data_class' => Outing::class,'required' => false
         ]);
     }
 }

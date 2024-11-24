@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une sortie{% endblock %}
+
+{% block body %}
+
+    <div class="d-flex justify-content-center">
+        <h1>Hello! ✅</h1>
+
+        {{ form_start(outingForm) }}
+        {{ form_widget(outingForm) }}
+        <br><button class="btn btn-primary">Confirm</button>
+        {{ form_errors(outingForm) }}
+    </div>
+    {{ form_end(outingForm) }}
+
+{% endblock %}
+
+
+
+{#        (outingForm), {'method': 'POST'}#}
