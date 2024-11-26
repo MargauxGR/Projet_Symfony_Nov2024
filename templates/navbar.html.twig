@@ -1,0 +1,43 @@
+<nav class="main-nav">
+    <div class="nav-container">
+        <a class="nav-brand" href="#">
+            <img src="{{ asset('img/eni_logo.png') }}" alt="Logo ENI" width="24" height="24" class="nav-img">
+            ENI
+        </a>
+
+        <ul class="nav-navbar">
+            <li class="item-nav">
+                <a class="link-nav" href="{{ path('app_login') }}" title="login">
+                    Login</a>
+            </li>
+
+            {% if app.user %}
+            <li class="item-nav">
+            <a class="link-nav" href="{{ path('app_outings_list') }}" title="allOutings">
+                Current Outings</a>
+            </li>
+            {% endif %}
+        </ul>
+
+        <ul class="nav-navbar">
+            {% if app.user %}
+                <li class="item-nav">
+                    <a class="link-nav" href="{{ path('app_outings_create') }}" title="newOuting">
+                        New Outing</a>
+                </li>
+            {% endif %}
+        </ul>
+        <ul class="nav-navbar">
+            {% if app.user %}
+            <li class="item-nav">
+                <a class="link-nav" href="{{ path('app_logout') }}" title="logout">
+                    Logout</a>
+            </li>
+            {% else %}
+            <li class="item-nav">
+                <a class="link-nav" href="{{ path('app_login') }}"></a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,90 @@
+html {
+    font-family: sans-serif;
+    font-size: 82.5%;
+}
+
+.header {
+    background-color: #031633;
+    color: white;
+    padding: 16px;
+}
+
+.main-nav {
+    width: 25%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1.2%;
+
+    display: flex;
+    position: sticky;
+
+}
+
+.main-nav a {
+    padding: 0.5em 1rem;
+    display: block;
+}
+
+.nav-container {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*.nav-brand {*/
+
+/*}*/
+
+/*.nav-navbar {*/
+
+/*}*/
+
+/*.item-nav {*/
+
+/*}*/
+
+/*.link-nav {*/
+
+/*}*/
+
+/* --- */
+
+.new-outing {
+
+}
+
+.outing-table {
+    border-collapse: initial;
+    border-end-end-radius: 10px;
+    border: 2px #fff8dc;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+th, td {
+    border: 2px solid rgba(255, 255, 255, 0);
+    padding: 10px 20px;
+}
+
+th {
+    background-color: #ebebeb;
+}
+
+td {
+    text-align: center;
+}
+
+tr:nth-child(even) td {
+    background-color: #efe7ff;
+}
+
+tr:nth-child(odd) td {
+    background-color: #fde6eb;
+}
+
+caption {
+    padding: 10px;
+}
+
+

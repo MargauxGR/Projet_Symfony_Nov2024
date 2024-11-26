@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Sorties ENI !
-    {# | {{ parent() }} #}
+{% block title %}
+    Sorties ENI !| {{ parent() }}
 {% endblock %}
 
 {% block body %}
 
-<div class="the-outings">
-    <h1>Les Sorties ! ✅</h1>
-    <table>
+<div class="overflow-auto">
+    <h1>Our Outings! ✅</h1>
+    <h2>All our current outings are displayed here.</h2>
+    <table class="outing-table">
         <thead>
         <tr>
             <th>Name</th>
@@ -34,8 +35,4 @@
     </table>
 </div>
     <br>
-<div>
-{#    {{  }}#}
-{#    <button class="btn btn-primary">Create a new outing</button>#}
-</div>
 {% endblock %}
