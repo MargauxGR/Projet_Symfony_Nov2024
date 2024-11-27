@@ -20,7 +20,7 @@ class Outing
     #[Assert\Length(min: 15, max: 255,
         minMessage: 'Minimum {{ limit }} characters required.',
         maxMessage: 'Maximum {{ limit }} characters allowed.')]
-    #[Assert\Regex(pattern: '/^[a-zÀ-ù 0-9_-]+$/i',
+    #[Assert\Regex(pattern: '/^[a-zÀ-ü 0-9_-.]+$/i',
         message: 'Please use only alphanumeric characters and hyphen, underscore or dot.')]
     private ?string $name = null;
 
@@ -44,8 +44,8 @@ class Outing
     #[Assert\Length(min: 50, max: 2550,
         minMessage: 'Minimum {{ limit }} characters required.',
         maxMessage: 'Maximum {{ limit }} characters allowed.')]
-    #[Assert\Regex(pattern: '/^[a-zÀ-ù 0-9_-]+$/i',
-        message: 'MPlease use only alphanumeric characters and special characters allowed(-_.,;:!?() ).',)
+    #[Assert\Regex(pattern: '/^[a-zÀ-ü 0-9_-.]+$/i',
+        message: 'Please use only alphanumeric characters and special characters allowed -_.,;:!?( ).',)
         ]
     private ?string $outingDetails = null;
 

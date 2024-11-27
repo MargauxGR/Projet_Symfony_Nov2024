@@ -16,15 +16,14 @@
         {% block javascripts %}
             {% block importmap %}
                 {{ importmap('app') }}
-                <script src="{{ asset('js/app.js') }}"></script>
+{#                <script src="{{ asset('js/app.js') }}"></script>#}
             {% endblock %}
         {% endblock %}
     </head>
     <body>
+    {{ include('navbar.html.twig') }}
         {% block body %}
-            <header>
-            {{ include('navbar.html.twig') }}
-            </header>
+
         {% endblock %}
     </body>
 </html>

@@ -10,8 +10,12 @@
 
         {% if app.user %}
             <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                <a href="{{ path('app_logout') }}">Logout</a>
             </div>
+        {% endif %}
+
+        {%  if is_granted("ROLE_ADMIN") %}
+        <a href="{{ path('app_outings_list') }}"></a>
         {% endif %}
 
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>

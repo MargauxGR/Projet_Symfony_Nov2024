@@ -1,90 +1,77 @@
-html {
-    font-family: sans-serif;
-    font-size: 82.5%;
-}
-
-.header {
-    background-color: #031633;
-    color: white;
-    padding: 16px;
-}
-
-.main-nav {
-    width: 25%;
-    float: left;
+/* Reset some basic styles for consistency */
+* {
     margin: 0;
     padding: 0;
-    list-style: none;
-    font-size: 1.2%;
-
-    display: flex;
-    position: sticky;
-
+    box-sizing: border-box;
 }
 
-.main-nav a {
-    padding: 0.5em 1rem;
-    display: block;
+/* Set up a basic font and color scheme */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
 }
 
-.nav-container {
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-/*.nav-brand {*/
-
-/*}*/
-
-/*.nav-navbar {*/
-
-/*}*/
-
-/*.item-nav {*/
-
-/*}*/
-
-/*.link-nav {*/
-
-/*}*/
-
-/* --- */
-
-.new-outing {
-
-}
-
-.outing-table {
-    border-collapse: initial;
-    border-end-end-radius: 10px;
-    border: 2px #fff8dc;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-}
-
-th, td {
-    border: 2px solid rgba(255, 255, 255, 0);
-    padding: 10px 20px;
-}
-
-th {
-    background-color: #ebebeb;
-}
-
-td {
+/* Header styles */
+header {
+    background: #007bff; /* Blue background */
+    color: white;
+    padding: 20px;
     text-align: center;
 }
 
-tr:nth-child(even) td {
-    background-color: #efe7ff;
+header h1 {
+    margin-bottom: 10px;
 }
 
-tr:nth-child(odd) td {
-    background-color: #fde6eb;
+/* Navigation styles */
+nav ul {
+    list-style-type: none;
 }
 
-caption {
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffcc00; /* Gold color on hover */
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+}
+
+section {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
     padding: 10px;
+    background: #007bff; /* Same blue as header */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
-
+/* Responsive styles */
+@media (max-width: 600px) {
+    nav ul li {
+        display: block; /* Stack navigation items on small screens */
+        margin-bottom: 10px;
+    }
+}
